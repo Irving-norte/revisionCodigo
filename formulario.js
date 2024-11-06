@@ -1,4 +1,4 @@
-var formulario = document.querySelector("#form")
+var formulario = document.querySelector(".formulario")
 
 formulario.onsubmit = function(e) {
 
@@ -28,13 +28,6 @@ if (nombre.length > 0 && edad > 18 && edad < 120)  {
   }
 }
 
-var botonBorrar = document.createElement("button")
-botonBorrar.textContent = "Eliminar invitado"
-botonBorrar.id = "boton-borrar"
-var corteLinea = document.createElement("br")
-document.body.appendChild(corteLinea)
-document.body.appendChild(botonBorrar);
-
 function agregarInvitado(nombre, edad, nacionalidad) {
 
   if (nacionalidad === "ar") {
@@ -50,20 +43,14 @@ function agregarInvitado(nombre, edad, nacionalidad) {
     nacionalidad = "Peruana"
   }
 
-var lista = document.getElementById("lista-de-invitados")
+  var lista = document.getElementById("lista-de-invitados");
 
-var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
-lista.appendChild(elementoLista)
+  // Crear el contenedor del nuevo invitado
+  var elementoLista = document.createElement("div");
+  elementoLista.classList.add("elemento-lista");
+  lista.appendChild(elementoLista);
+  
 
-var spanNombre = document.createElement("span")
-var inputNombre = document.createElement("input")
-var espacio = document.createElement("br")
-spanNombre.textContent = "Nombre: "
-inputNombre.value = nombre 
-elementoLista.appendChild(spanNombre)
-elementoLista.appendChild(inputNombre)
-elementoLista.appendChild(espacio)
 
 function crearElemento(descripcion, valor) {
 var spanNombre = document.createElement("span")
@@ -81,6 +68,7 @@ crearElemento("Edad", edad)
 crearElemento("Nacionalidad", nacionalidad)
 
 
+/*Esto venía duplicado*/ 
 var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
